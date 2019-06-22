@@ -1,0 +1,19 @@
+﻿<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th class="text-center" style="width:10%;">Done</th>
+            <th>To do</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var todo in Todos)
+        {
+            <TodoItem Text="@todo.ItemText" Done="@todo.Completed" />
+        }
+    </tbody>
+</table>
+
+@functions {
+    [Parameter]
+    IList<ToDoApp.Data.ToDo> Todos { get; set; }   
+}

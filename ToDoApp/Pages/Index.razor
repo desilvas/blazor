@@ -1,0 +1,18 @@
+﻿@page "/"
+@using ToDoApp.Data
+@inject ToDoService ToDoService
+
+<h1>Todo List</h1>
+
+<TodoList Todos="@todos" />
+
+@functions {
+
+    IList<ToDo> todos;
+
+    protected override async Task OnInitAsync()
+    {
+        todos = await ToDoService.GetToDos();
+    }
+
+}
